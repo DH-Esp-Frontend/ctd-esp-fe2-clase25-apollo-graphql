@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ListadoPokemonsItem from "../components/ListadoPokemonsItem";
 import {Pokemon} from "../types/pokemon.types";
-import {useQuery} from "@apollo/client";
-import {GET_POKEMONS} from "./ListadoPokemons.queries";
 
 /**
  * Visualiza una lista de pokemons
@@ -16,7 +14,8 @@ import {GET_POKEMONS} from "./ListadoPokemons.queries";
  * @author Digital House
  */
 const ListadoPokemons = () => {
-    const { loading, error, data } = useQuery(GET_POKEMONS);
+    const loading = true;
+    const data = {pokemons: []};
 
     if (loading) return <div>Cargando pokemons...</div>
     if (!data?.pokemons) return <></>
